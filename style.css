@@ -1,0 +1,113 @@
+
+body {
+    font-family: Arial, sans-serif;
+    background: whitesmoke;
+}
+
+table {
+    width: 50%;
+    margin: 20px;
+    background: white;
+    border-radius: 10px;
+
+}
+
+th {
+    background-color: dodgerblue;
+    color: white;
+    padding: 12px;
+    font-size: 16px;
+
+}
+
+td {
+    padding: 10px;
+    text-align: center;
+}
+
+
+
+tr:hover {
+    background-color: whitesmoke;
+
+}
+
+img {
+    width: 120px;
+    border-radius: 4px;
+
+}
+
+a {
+    color: dodgerblue;
+}
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    background: whitesmoke;
+    margin: 0;
+    padding: 0;
+}
+
+
+nav ul {
+    list-style: none;
+    padding: 10px 20px;
+    background: dodgerblue;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+
+#menyykiht {
+    display: flex;
+    padding: 20px;
+}
+
+#menyykiht li {
+    list-style: none;
+}
+
+#menyykiht img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+#menyykiht img:hover {
+    transform: scale(1.05);
+}
+
+
+#sisukiht {
+    width: 60%;
+    background: white;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
