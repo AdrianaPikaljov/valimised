@@ -22,6 +22,7 @@ function kustuta1punktid($id)
     $paring->close();
 }
 
+
 function naitatabel()
 {
     global $connect;
@@ -83,6 +84,15 @@ function kusututaPresident($id)
         "DELETE FROM valimused WHERE id=?"
     );
     $paring->bind_param("i", $id);
+    $paring->execute();
+    $paring->close();
+}
+
+function uuskommentaar($komment2, $id)
+{
+    global $connect;
+    $paring = $connect->prepare("update valimused set kommentaarid=CONCAT(kommentaarid, ?) where id=?");
+    $paring->bind_param("si", $komment2, $id);
     $paring->execute();
     $paring->close();
 }

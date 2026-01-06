@@ -24,6 +24,13 @@ if (isset($_REQUEST['kusututaPresident'])) {
     header("Location: " . $_SERVER['PHP_SELF']);
     exit;
 }
+
+if (isset($_REQUEST['uus_kommentaar']) && isset($_REQUEST['uue_komment_id'])) {
+    uuskommentaar($_REQUEST['uus_kommentaar'], $_REQUEST['uue_komment_id']);
+    header("Location: " . $_SERVER['PHP_SELF']);
+    exit;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -54,5 +61,24 @@ if (isset($_REQUEST['kusututaPresident'])) {
     ?>
 
 </table>
+
+<H2>Lisa oma presidendi</H2>
+<form action="">
+    <label for="presidentNimi">President nimi:</label>
+    <input type="text" name="presidentNimi">
+    <br>
+    <label for="pilt">Presidendi pilt:</label>
+    <textarea name="pilt" id="pilt"></textarea>
+    <br>
+    <label for="avalik">Staatus:</label>
+    <select name="avalik" id="avalik" required>
+        <option value="">Vali staatus</option>
+        <option value="1">Avalik</option>
+        <option value="0">Peidetud</option>
+    </select>
+    <br>
+    <input type="submit" value="Lisa">
+</form>
+
 </body>
 </html>
