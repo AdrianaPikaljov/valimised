@@ -31,6 +31,18 @@ if (isset($_REQUEST['uus_kommentaar']) && isset($_REQUEST['uue_komment_id'])) {
     exit;
 }
 
+if (isset($_REQUEST['naita_id'])) {
+    naitaPresident($_REQUEST['naita_id']);
+    header("Location: " . $_SERVER['PHP_SELF']);
+    exit;
+}
+
+if (isset($_REQUEST['peida_id'])) {
+    peidaPresident($_REQUEST['peida_id']);
+    header("Location: " . $_SERVER['PHP_SELF']);
+    exit;
+}
+
 ?>
 
 <!DOCTYPE html>

@@ -96,3 +96,25 @@ function uuskommentaar($komment2, $id)
     $paring->execute();
     $paring->close();
 }
+
+function naitaPresident($id)
+{
+    global $connect;
+    $paring = $connect->prepare(
+        "UPDATE valimused SET avalik=1 WHERE id=?"
+    );
+    $paring->bind_param("i", $id);
+    $paring->execute();
+    $paring->close();
+}
+
+function peidaPresident($id)
+{
+    global $connect;
+    $paring = $connect->prepare(
+        "UPDATE valimused SET avalik=0 WHERE id=?"
+    );
+    $paring->bind_param("i", $id);
+    $paring->execute();
+    $paring->close();
+}
