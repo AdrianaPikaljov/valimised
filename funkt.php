@@ -10,3 +10,47 @@ function lisa1punktid($id)
     $paring->execute();
     $paring->close();
 }
+
+function naitatabel()
+{
+    global $connect;
+
+    $paring = $connect->prepare("
+        SELECT id, president, pilt, punktid, lisamisaeg, kommentaarid, avalik
+        FROM valimused
+    ");
+    $paring->execute();
+    $paring->bind_result($id, $president, $pilt, $punktid, $lisamisaeg, $kommentaarid, $avalik);
+
+    while ($paring->fetch()) {
+        echo "<tr>";
+        echo "<td>$president</td>";
+        echo "<td>$punktid</td>";
+        echo "<td><img src='$pilt' alt='pilt'></td>";
+        echo "<td><a href='?lisa1punktid=$id'>+1</a></td>";
+        echo "<td><a href='?kustuta1punktid=$id'>-1</a></td>";
+        echo "<td><a href='?kusututaPresident=$id'>Kustuta</a></td>";
+        echo "<td>" . nl2br(htmlspecialchars($kommentaarid)) . "</td>";
+        echo "<td>
+            <form action='' method='post'>
+                <input type='hidden' name='uue_komment_id' value='$id'>
+                <input type='text' name='uus_kommentaar'>
+                <input type='submit' value='OK'>
+            </form>        </td>";
+        $tekst="Näita";
+        $seisund="naita_id";
+        $tekstLehel="Peidetud";
+        if($avalik==1){
+            $tekstLehel="Näidatud";
+            $seisund='peida_id';
+            $tekst='Peida';
+        }
+        echo"<td><a href='?$seisund=$id'>$tekst</td>";
+        echo "<td>$tekstLehel</td>";
+
+
+        echo "</tr>";
+    }
+
+    $paring->close();
+}
