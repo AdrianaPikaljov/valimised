@@ -54,3 +54,24 @@ function naitatabel()
 
     $paring->close();
 }
+function lisaPresident($presidentNimi, $pilt)
+{
+    global $connect;
+    $paring = $connect->prepare(
+        "INSERT INTO valimused (president, pilt, punktid, lisamisaeg)
+         VALUES (?, ?, 0, NOW())"
+    );
+    $paring->bind_param("ss", $presidentNimi, $pilt);
+    $paring->execute();
+    $paring->close();
+}
+function kusututaPresident($id)
+{
+    global $connect;
+    $paring = $connect->prepare(
+        "DELETE FROM valimused WHERE id=?"
+    );
+    $paring->bind_param("i", $id);
+    $paring->execute();
+    $paring->close();
+}
