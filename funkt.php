@@ -22,7 +22,6 @@ function kustuta1punktid($id)
     $paring->close();
 }
 
-
 function naitatabel()
 {
     global $connect;
@@ -66,6 +65,7 @@ function naitatabel()
 
     $paring->close();
 }
+
 function lisaPresident($presidentNimi, $pilt)
 {
     global $connect;
@@ -77,6 +77,7 @@ function lisaPresident($presidentNimi, $pilt)
     $paring->execute();
     $paring->close();
 }
+
 function kusututaPresident($id)
 {
     global $connect;
@@ -96,6 +97,7 @@ function uuskommentaar($komment2, $id)
     $paring->execute();
     $paring->close();
 }
+
 
 function naitaPresident($id)
 {
