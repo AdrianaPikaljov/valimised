@@ -6,6 +6,13 @@ if (isset($_REQUEST['lisa1punktid'])) {
     header("Location:" . $_SERVER['PHP_SELF']);
     exit();
 }
+
+if (isset($_REQUEST['kustuta1punktid'])) {
+    kustuta1punktid($_REQUEST['kustuta1punktid']);
+    header("Location:" . $_SERVER['PHP_SELF']);
+    exit();
+}
+
 if (isset($_REQUEST['presidentNimi'])) {
     lisaPresident($_REQUEST['presidentNimi'], $_REQUEST['pilt']);
     header("Location: " . $_SERVER['PHP_SELF']);
